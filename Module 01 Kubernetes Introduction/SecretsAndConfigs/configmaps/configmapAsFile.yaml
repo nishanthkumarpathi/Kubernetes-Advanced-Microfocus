@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-config
+  namespace: default
+data:
+  config.yaml: |
+    ENVIRONMENT: devlopment
+    LANGUAGE: Telugu
+    NETWORK: local
+    TIER: Free-tier

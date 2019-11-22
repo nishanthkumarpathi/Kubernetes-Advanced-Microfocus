@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos
+  labels:
+    name: centos
+spec:
+  containers:
+    - name: centos
+      image: centos
+      command: ["/bin/sh"]
+      args: ["-c", "while true; do cat /data/index.html; sleep 10; done"]
+      volumeMounts:
+        - name: www-persistent-storage
+          mountPath: /data
+  volumes:
+    - name: www-persistent-storage
+      persistentVolumeClaim:
+        claimName: http-claim

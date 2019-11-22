@@ -1,0 +1,75 @@
+Step1: Install NFS Package
+    
+    yum install nfs-utils
+
+Step2: Create a file to share across various pods
+
+    mkdir /var/nfsshare
+
+Step3: Configure your share permissions
+
+    chmod -R 755 /var/nfsshare
+
+    chown nfsnobody:nfsnobody /var/nfsshare
+
+Step4: Start the services and enable them to be started at boot time. 
+
+    systemctl enable rpcbind
+    systemctl enable nfs-server
+    systemctl enable nfs-lock
+    systemctl enable nfs-idmap
+    systemctl start rpcbind
+    systemctl start nfs-server
+    systemctl start nfs-lock
+    systemctl start nfs-idmap
+
+Step5: Share the NFS directory over the network
+
+    nano /etc/exports
+
+    Add the below line
+
+    /var/nfsshare    *(rw,sync,no_root_squash,no_all_squash)
+
+Step6: restart the NFS service
+
+    systemctl restart nfs-server
+
+
+Step7: if firewall is enabled then run the below commands.
+
+    firewall-cmd --permanent --zone=public --add-service=nfs
+    firewall-cmd --permanent --zone=public --add-service=mountd
+    firewall-cmd --permanent --zone=public --add-service=rpc-bind
+    firewall-cmd --reload
+
+******** <<<========================>> *********
+
+Now its time to test your NFS Server Configuration using NFS Client
+
+Step1: 
+
+    yum install nfs-utils
+
+Step2: create a directory at the client side
+
+    mkdir -p /mnt/nfs/var/nfsshare
+
+Step3: Mount the NFS Share to the created directory
+
+    mount -t nfs <<IP-ADDRESS-OF-NFS-SERVER>>:/var/nfsshare /mnt/nfs/var/nfsshare/
+
+    Note: Replace the above ip address with your own NFS Server Ip Address
+
+Step4: Crosscheck weather mount is successful or Note
+
+    df -kh
+
+Step5: Check weather you have appropirate permission to create a file or Note
+
+    touch /mnt/nfs/var/nfsshare/test_nfs
+
+
+
+
+

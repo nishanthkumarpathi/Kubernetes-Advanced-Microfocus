@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configmaptest
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: configmaptest
+  template:
+    metadata:
+      labels:
+        name: configmaptest
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: configtest
+            mountPath: /usr/config
+      volumes:
+      - name: configtest
+        configMap:
+          name: my-config

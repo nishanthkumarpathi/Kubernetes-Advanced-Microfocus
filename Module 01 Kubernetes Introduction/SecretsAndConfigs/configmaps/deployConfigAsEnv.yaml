@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: configmaptest
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: configmaptest
+  template:
+    metadata:
+      labels:
+        name: configmaptest
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7
+        ports:
+        - containerPort: 80
+        env:
+        - name: Language
+          valueFrom:
+            configMapKeyRef:
+              name: language
+              key: LANGUAGE
+        - name: Environment
+          valueFrom:
+            configMapKeyRef:
+              name: environment
+              key: ENVIRONMENT
