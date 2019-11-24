@@ -1,0 +1,15 @@
+Step1:
+
+    kubectl get nodes
+
+Step2:
+
+    kubectl get pods
+
+Step3:
+
+    kubectl get svc
+
+Step4:
+
+    kubectl get deployments

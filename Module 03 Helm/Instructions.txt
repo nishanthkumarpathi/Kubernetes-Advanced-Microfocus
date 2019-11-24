@@ -1,0 +1,31 @@
+helm search hub wordpress
+
+helm search repo
+
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+
+helm search repo brigade
+
+
+helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com/
+
+helm repo list
+
+Install a Release - helm install [chart]
+
+Upgrade a Release Revision - helm upgrade [release] [chart]
+
+Rollback to a release version - helm rollback [release] [revision]
+
+Print Release History - helm history [release]
+
+Display Release Status - helm status [release]
+
+show details of a release - helm get [release]
+
+Uninstall a Release - helm delete [release]
+
+List Release - helm list
+
+
+

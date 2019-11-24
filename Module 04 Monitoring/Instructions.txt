@@ -1,0 +1,10 @@
+kubectl create namespace monitoring
+
+kubectl create -f 01-clusterRole.yaml
+
+kubectl create -f 02-config-map.yaml
+
+kubectl create -f 03-prometheus-deployment.yaml
+
+kubectl create -f 04-prometheus-service.yaml
+

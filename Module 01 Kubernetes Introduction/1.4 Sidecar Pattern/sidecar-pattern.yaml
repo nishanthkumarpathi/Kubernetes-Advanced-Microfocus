@@ -41,3 +41,9 @@ spec:
       volumeMounts:
         - name: shared-logs
           mountPath: /usr/share/nginx/html # nginx-specific mount path
+    - name: busyboxplus
+      image: radial/busyboxplus:curl
+      command:
+        - sleep
+        - "36000"
+      imagePullPolicy: IfNotPresent

@@ -8,18 +8,14 @@ In practice, your sidecar is likely to be a log collection container that upload
 
 Step 1: Run the Pod Manifest file
 
-    `kubectl apply -f pod.yaml`
+    `kubectl apply -f sidecar-pattern.yaml`
 
 Note - Ensure Once the pod is running
 
 Step 2: Connect to the sidecar pod
 
-`kubectl exec pod-with-sidecar -c sidecar-container -it bash`
+`kubectl exec pod-with-sidecar -c busyboxplus -it bash`
 
-Step 3: Install curl on the sidecar
-
-    `apt-get update && apt-get install curl`
-
-Step 4: Access the log file via the sidecar
+Step 3: Access the log file via the sidecar
 
     `curl 'http://localhost:80/app.txt'`

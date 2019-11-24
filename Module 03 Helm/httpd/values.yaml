@@ -1,0 +1,8 @@
+image:
+  pullPolicy: IfNotPresent
+  repository: nginx
+replicaCount: 1
+service:
+  label: 'app: helm'
+  port: 80
+  type: ClusterIP

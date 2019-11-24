@@ -1,0 +1,26 @@
+Step1: Deploy the backend of the Application
+
+    kubectl apply -f 1-backend-deployment.yaml
+
+Step2: Verify the deployment
+
+    kubectl describe deployment hello
+
+Step3: Deploy the backend Service
+
+    kubectl apply -f 2-backend-service.yaml
+
+Step4: Verify the Service
+
+    kubectl describe service hello
+
+Step5: Deploy the Frontend Application
+
+    kubectl apply -f 3-frontend-deployment.yaml
+
+Step6: Deploy the Frontend Service
+
+    kubectl apply -f 4-frontend-service.yaml
+
+Step7: Send traffic to the frontend service and verify weather we are able to access backend
+

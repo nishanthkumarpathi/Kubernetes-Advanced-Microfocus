@@ -1,0 +1,15 @@
+Step 1: Create the Pod and the two Containers
+
+    kubectl apply -f two-container-pod.yaml
+
+Step 2: View information about the Pod and the Containers
+
+    kubectl get pod two-containers --output=yaml
+
+Step 3: Login to 1st Container and Read the HTML Page
+
+    kubectl exec mc1 -c 1st -- /bin/cat /usr/share/nginx/html/index.html
+
+Step 4: Login to the 2nd Container and Rad the HTML page
+
+    kubectl exec mc1 -c 2nd -- /bin/cat /html/index.html

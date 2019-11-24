@@ -1,0 +1,21 @@
+Step1: Setup Configmap with all reverse proxy necessaray configuration
+
+    kubectl apply -f configmap.yaml
+
+Step2: Deploy the reverse-proxy containers
+
+    kubectl apply -f reverse-proxy.yaml
+
+Step3:Expose the Pod using the NodePort service
+
+    kubectl expose pod mc3 --type=NodePort --port=80
+
+Step4: Verify the node port that is allocated
+
+    kubectl describe service mc3
+
+Step5: Browse the Node IP with the above mentioned port
+
+    http://myhostnodeip:32111
+
+    Note: we need to understand the flow now
