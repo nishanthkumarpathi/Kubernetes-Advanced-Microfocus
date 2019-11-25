@@ -10,22 +10,22 @@ Step3: Configure your share permissions
 
     chmod -R 755 /var/nfsshare
 
-    chown nfsnobody:nfsnobody /var/nfsshare
+    sudo chown nfsnobody:nfsnobody /var/nfsshare
 
 Step4: Start the services and enable them to be started at boot time. 
 
-    systemctl enable rpcbind
-    systemctl enable nfs-server
-    systemctl enable nfs-lock
-    systemctl enable nfs-idmap
-    systemctl start rpcbind
-    systemctl start nfs-server
-    systemctl start nfs-lock
-    systemctl start nfs-idmap
+    sudo systemctl enable rpcbind
+    sudo systemctl enable nfs-server
+    sudo systemctl enable nfs-lock
+    sudo systemctl enable nfs-idmap
+    sudo systemctl start rpcbind
+    sudo systemctl start nfs-server
+    sudo systemctl start nfs-lock
+    sudo systemctl start nfs-idmap
 
 Step5: Share the NFS directory over the network
 
-    nano /etc/exports
+    sudo nano /etc/exports
 
     Add the below line
 
@@ -33,7 +33,7 @@ Step5: Share the NFS directory over the network
 
 Step6: restart the NFS service
 
-    systemctl restart nfs-server
+    sudo systemctl restart nfs-server
 
 
 Step7: if firewall is enabled then run the below commands.

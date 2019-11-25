@@ -10,5 +10,4 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     path: /var/nfsshare
-    server: 172.16.0.32
-    readOnly: false
+    server: 172.16.0.34
