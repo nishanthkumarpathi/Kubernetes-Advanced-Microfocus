@@ -4,5 +4,5 @@ metadata:
   name: testsecret
   namespace: default
 data:
-  LANGUAGE: telugu
-  API_KEY: 12345
+  LANGUAGE: "telugu"
+  API_KEY: "12345"

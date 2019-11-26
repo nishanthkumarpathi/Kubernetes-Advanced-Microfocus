@@ -4,6 +4,8 @@
 
 replicaCount: 1
 
+# the URL where our Docker image can be found
+
 image:
   repository: nginx
   pullPolicy: IfNotPresent

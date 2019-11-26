@@ -15,18 +15,13 @@ spec:
         name: configmaptest
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.7
-        ports:
-        - containerPort: 80
-        env:
-        - name: Language
-          valueFrom:
-            configMapKeyRef:
-              name: language
-              key: LANGUAGE
-        - name: Environment
-          valueFrom:
-            configMapKeyRef:
-              name: environment
-              key: ENVIRONMENT
+        - name: nginx
+          image: nginx:1.7
+          ports:
+            - containerPort: 80
+          env:
+            - name: language
+              valueFrom:
+                configMapKeyRef:
+                  name: testsecret
+                  key: LANGUAGE

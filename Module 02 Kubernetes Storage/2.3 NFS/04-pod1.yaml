@@ -17,4 +17,4 @@ spec:
   volumes:
     - name: nfsvol
       persistentVolumeClaim:
-        claimName: nfs-pvc
+        claimName: nfs-pvc-nishanth

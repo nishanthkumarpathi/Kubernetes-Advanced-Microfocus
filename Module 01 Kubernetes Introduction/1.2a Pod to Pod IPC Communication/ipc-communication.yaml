@@ -4,10 +4,10 @@ metadata:
   name: mc2
 spec:
   containers:
-  - name: producer
-    image: allingeek/ch6_ipc
-    command: ["./ipc", "-producer"]
-  - name: consumer
-    image: allingeek/ch6_ipc
-    command: ["./ipc", "-consumer"]
+    - name: producer1
+      image: allingeek/ch6_ipc
+      command: ["./ipc", "-producer"]
+    - name: consumer1
+      image: allingeek/ch6_ipc
+      command: ["./ipc", "-consumer"]
   restartPolicy: Never
