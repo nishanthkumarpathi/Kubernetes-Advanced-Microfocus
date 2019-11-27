@@ -1,0 +1,96 @@
+Step 1: Place a NoSchedule Taint on node01
+
+    kubectl taint node node01 myKey=myValue:NoSchedule
+
+Step 2:
+
+    kubectl describe nodes | egrep "Name:|Taints:"
+
+Step 3:  Create PODs with no Tolerations
+
+    kubectl create deployment nginx --image=nginx
+
+Step 4: 
+
+    kubectl get pods -o wide
+
+Step 5:
+
+    kubectl describe pods
+
+Step 6: Check Taints of the Nodes
+
+    kubectl describe nodes | egrep "Name:|Taints:"
+
+Step 7: Remove Taint from the Master
+
+    kubectl taint node k8-master node-role.kubernetes.io/master-
+
+Step 8: Verify that the POD is running on the Master
+
+    kubectl get pods -o wide
+
+Step 9:    Remove the Taint from node01
+
+    kubectl taint node node01 myKey-
+
+Step 10: Verify that the POD is still running on the Master
+
+    kubectl get pods -o wide
+
+Step 11: Add POD by Scaling the Deployment
+
+    kubectl scale deployment nginx --replicas=2
+
+Step 12: Verify that the second POD is scaled on node01
+
+    kubectl get pods -o wide
+
+
+Step 13: Add Taint to node01 
+
+    kubectl taint node node01 myKey=myValue:NoSchedule
+
+Step 14:
+
+    kubectl taint node k8-master node-role.kubernetes.io/master- 
+
+Step 15: Create PODs with taint Tolerations
+
+    kubectl apply -f 01-with-tolerations.yaml
+
+Step 16: Check that the PODs are running on both Nodes
+
+    kubectl get pods -o wide
+
+STep 17: Change Toleration Value
+
+    kubectl edit deploy nginx-deployment
+
+    Replace the Value to the below
+
+    value: otherValue
+
+Step 18: Verify that now all PODs are running on the Master
+
+    kubectl describe nodes | egrep "Name:|Taints:"
+
+Step 19:
+
+    kubectl get pods -o wide
+
+    
+
+    
+
+    
+
+
+
+
+
+
+    
+
+    
+    

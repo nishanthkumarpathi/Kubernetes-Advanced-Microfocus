@@ -1,0 +1,118 @@
+Step 1: Check for the Taints
+
+
+    kubectl describe nodes | egrep "Name:|Taints:"
+
+Step 2:
+
+    kubectl taint node k8-master node-role.kubernetes.io/master-
+
+
+Step 3: 
+
+    kubectl apply -f 01-pod-with-node-affinity.yaml
+
+Step 4:
+
+    kubectl get POD -o wide
+
+Step 5: 
+
+    kubectl describe pod <<POD-NAME>>
+
+Step 6: Create a matching label on master
+
+    kubectl label nodes k8-master myKey=label1
+
+Step 7:
+
+    kubectl get POD -o wide
+
+Step 8: Remove the Label
+
+    kubectl describe nodes master | grep myKey
+
+    kubectl label nodes master myKey-
+
+    kubectl describe nodes master | grep myKey
+
+Step 9: Check Pod Status
+
+
+    kubectl get pods -o wide
+
+Step 10: Scale the given deployment
+
+    kubectl scale deployment nginx-deployment --replicas=3
+
+Step 11: Verify the scaling ( pods should be in pending state )
+
+    kubectl get pods -o wide
+
+Step 12: Remove the label from the master
+
+    kubectl label nodes k8-master myKey-
+
+Step 13: Change the Affinity Rule
+
+    cat 02-pod-with-node-affinity-soft.yaml
+
+    Look into the above file, you will see some content changed.
+
+    replace this content, into the nginx-deployment
+
+Step 14: Verify that new PODs are launched
+
+    kubectl get pods -o wide
+
+Step 15: New PODs are replacing the old, Pending PODs
+
+    kubectl get pods -o wide
+
+Step 16: Untaint the master
+
+    kubectl taint node k8-master node-role.kubernetes.io/master-
+
+Step 17: Run the Hard Affinity deployment
+
+    kubectl apply -f 03-pod-with-node-affinity-hard.yaml
+
+
+Step 18: Get the details of the pod
+
+    kubectl get pods
+
+Step 19: Run a POD with app=nginx via Deployment
+
+    kubectl create deployment --image=nginx nginx
+
+Step 20: Check the pod Status
+
+    kubectl get pod -o wide --show-labels
+
+Step 21: Verify that the dependent PODs are launched on the same node
+
+    kubectl get pods
+
+Step 22: 
+
+    kubectl get pods -o wide --show-labels
+
+Step 23: Create a POD with an anti-affinity towards app=nginx
+
+    kubectl apply -f 04-pod-with-node-anti-affinity.yaml
+
+Step 24: 
+
+    kubectl get pod -o wide --show-labels | egrep "anti|app=nginx,"
+
+
+
+
+
+
+
+
+
+
+    
