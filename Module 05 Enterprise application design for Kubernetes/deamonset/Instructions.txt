@@ -1,0 +1,16 @@
+Step 1:
+
+    kubectl apply -f 01counter-pv.yaml
+
+Step 2:
+
+    kubectl apply -f 02counter-pvc.yaml
+
+Step 3:
+
+    kubectl apply -f 03deamonset.yaml
+
+Step 4: Now lets try to scale the statefulset and see
+
+   kubectl scale deamonset counter-app --replicas=3
+

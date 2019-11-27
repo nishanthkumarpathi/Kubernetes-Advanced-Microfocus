@@ -1,0 +1,26 @@
+Step 1: Ensure you are the admin ( in my cluster kubernetes is admin )
+
+    kubectl config use-context kubernetes
+
+Step 2:
+
+    kubectl apply -f 01-ns-admin-role.yaml
+
+Step 3:
+
+    kubectl apply -f 02-nishanth-ns-admin.yaml
+
+Step 4: Switch to the user and let's try deploying
+
+    kubectl config use-context nishanth-context
+    
+    kubectl run -n test nginx --image=nginx --replicas=2 
+    
+    kubectl get pods -n test -w
+    
+    kubectl expose deployment nginx -n test --type=NodePort --port=80
+    
+    kubectl get svc -n test
+
+    kubectl run nginx --image=nginx --replicas=2 
+

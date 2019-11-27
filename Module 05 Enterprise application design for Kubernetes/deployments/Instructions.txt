@@ -1,0 +1,15 @@
+Step 1:
+
+    kubectl apply -f 01counter-pv.yaml
+
+Step 2:
+
+    kubectl apply -f 02counter-pvc.yaml
+
+Step 3:
+
+    kubectl apply -f 03deployment.yaml
+
+Step 4: Now lets try to scale the deployment and see
+
+    kubectl scale deployment counter-deployment --replicas=2
