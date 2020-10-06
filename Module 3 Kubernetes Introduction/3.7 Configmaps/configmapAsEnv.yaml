@@ -4,5 +4,5 @@ metadata:
   name: testsecret
   namespace: default
 data:
-  LANGUAGE: "telugu"
+  LANGUAGE: "english"
   API_KEY: "12345"

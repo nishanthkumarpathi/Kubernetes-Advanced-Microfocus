@@ -6,6 +6,6 @@ metadata:
 data:
   config.yaml: |
     ENVIRONMENT: devlopment
-    LANGUAGE: Telugu
+    LANGUAGE: English
     NETWORK: local
     TIER: Free-tier
