@@ -9,7 +9,7 @@ sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 sudo swapoff -a
 
 # Install some utils
-sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
 
 # Configure Sysctl 
 

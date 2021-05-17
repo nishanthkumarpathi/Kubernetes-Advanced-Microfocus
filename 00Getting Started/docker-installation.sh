@@ -8,21 +8,19 @@ sudo apt update -y
 sudo swapoff -a
 
 # install some utils
-sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
 
 #Install Docker
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-if [ $UBUNTU_VERSION == "16.04" ]; then
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
-elif [ $UBUNTU_VERSION == "18.04" ]; then
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
-else
-    #default tested version
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
-fi
-sudo apt-get update
-sudo apt-get install -y docker.io
+
+echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update -y
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io
 
 #Install NFS client
 sudo apt-get install -y nfs-common
