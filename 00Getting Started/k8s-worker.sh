@@ -15,7 +15,7 @@ sudo apt-get upgrade -y
 sudo swapoff -a
 
 # install some utils
-sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release -y
 
 #Install Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -28,26 +28,18 @@ else
     #default tested version
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu xenial stable"
 fi
-sudo apt-get update
-sudo apt-get install -y docker.io
 
 #Install NFS client
 sudo apt-get install -y nfs-common
 
-#Enable docker service
-sudo systemctl start docker
-sudo systemctl enable docker
-
-sudo groupadd docker
-
-sudo usermod -aG docker $USER
 
 #Update the apt source list
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] http://apt.kubernetes.io/ kubernetes-xenial main"
 
 #Install K8s components
-sudo apt-get update
+sudo apt-get update -y
+
 sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
 
 sudo apt-mark hold kubelet kubeadm kubectl kubernetes-cni

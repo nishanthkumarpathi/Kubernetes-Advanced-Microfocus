@@ -8,7 +8,7 @@ sudo apt update -y
 sudo swapoff -a
 
 # install some utils
-sudo apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
+sudo apt-get install apt-transport-https ca-certificates curl gnupg lsb-release -y
 
 #Install Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -20,7 +20,7 @@ echo \
 
 sudo apt-get update -y
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 
 #Install NFS client
 sudo apt-get install -y nfs-common
