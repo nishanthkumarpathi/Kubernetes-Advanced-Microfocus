@@ -15,8 +15,12 @@ sudo apt-get install -y kubelet kubeadm kubectl kubernetes-cni
 
 sudo apt-mark hold kubelet kubeadm kubectl kubernetes-cni
 
+#Pull Necessary Images
+sudo kubeadm config images pull
+
 #Initialize the k8s cluster
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+#Remeber that, we are going to use Calico Networking, 192.168.0.0/16 is the default network used by Calico and this subnet is automatically recognized.
+sudo kubeadm init --pod-network-cidr=192.168.0.0/16
 
 sleep 60
 

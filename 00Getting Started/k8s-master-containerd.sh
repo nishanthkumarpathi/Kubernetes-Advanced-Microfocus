@@ -109,7 +109,9 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
 # Install Calico
 
-kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+curl https://docs.projectcalico.org/manifests/calico.yaml -O
+
+kubectl apply -f calico.yaml
 
 sleep 60
 
