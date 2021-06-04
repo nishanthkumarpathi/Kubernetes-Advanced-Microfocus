@@ -1,8 +1,8 @@
 ## Kubernetes-Advanced-Microfocus
 
-Lab Guide is Provided Here
 
-https://microfocus-k8-training-material.s3.amazonaws.com/index.html
+
+[Click Here for Lab Guide](https://nishanthkp.gitbook.io/kubernetes-training-guide/)
 
 
 Some of the labs and yaml files will have errors and mistakes and they are wantedly created.
