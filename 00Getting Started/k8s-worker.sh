@@ -7,8 +7,7 @@ echo "Ubuntu version: ${UBUNTU_VERSION}"
 echo "K8s node type: ${node_type}"
 echo
 #Update all installed packages.
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt-get update -y
 
 #if you get an error similar to
 #'[ERROR Swap]: running with swap on is not supported. Please disable swap', disable swap:
