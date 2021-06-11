@@ -5,12 +5,14 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: manual
+  storageClassName: default
   capacity:
     storage: 2Gi
   accessModes:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
-  nfs:
-    path: /var/nfsshare
-    server: 172.16.0.34
+  hostPath:
+    path: /mnt/data/vol
+  # nfs:
+  #   path: /var/nfsshare
+  #   server: 172.16.0.34

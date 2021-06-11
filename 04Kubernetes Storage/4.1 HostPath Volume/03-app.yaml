@@ -17,4 +17,4 @@ spec:
   volumes:
     - name: www-persistent-storage
       persistentVolumeClaim:
-        claimName: http-claim
+        claimName: http-claim1
