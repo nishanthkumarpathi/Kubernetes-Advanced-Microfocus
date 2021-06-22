@@ -103,4 +103,4 @@ echo "Installation of Kubernetes Workder has completed"
 echo "*************************************************"
 echo "Dont Close the Terminal"
 
-echo "You are supposed to copy the join command and run on the worker nodes."
+echo "You are supposed to copy the join command from master server and run on the worker nodes."

@@ -94,6 +94,8 @@ sudo kubeadm config images pull
 
 sudo kubeadm init --pod-network-cidr=192.168.0.0/16 --cri-socket=unix:///run/containerd/containerd.sock
 
+echo "Please Wait for 1 Min and Dont Cancel the Operation. Script will continue executing after 1 min break automatically"
+
 sleep 60
 
 #Create .kube file if it does not exists
