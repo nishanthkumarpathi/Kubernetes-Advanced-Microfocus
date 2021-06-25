@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx2
+  name: nginx-hard-affinity
 spec:
   replicas: 20
   selector:

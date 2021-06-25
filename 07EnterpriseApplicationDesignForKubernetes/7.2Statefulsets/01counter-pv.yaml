@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: counter-pv2
+  name: counter-pv3
   labels:
     type: local
 spec:
@@ -12,7 +12,7 @@ spec:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /mnt/data/vol
+    path: /mnt/data/vol3
 
   # nfs:
   #   path: /var/nfsshare
